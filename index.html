@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentuvifee Hub - Find Your Event</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: #FF5722;
+            padding: 39px 0;
+            border-radius: 0 0 0px 0px;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .nav-item {
+            margin: 0;
+        }
+
+        .nav-list {
+            display: flex;
+            list-style-type: none;
+            gap: 30px;
+        }
+
+        .nav-link {
+            color: #FFEB3B;
+            font-weight: 600;
+            font-size: 16px;
+            transition: opacity 0.2s;
+            display: block; 
+            padding: 5px 0;
+        }
+
+        .nav-link:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 700px;
+            overflow: hidden;
+            margin-bottom: 0px;
+        }
+
+        .hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 99%;
+            object-fit:cover;
+            filter: brightness(0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 20px;
+        }
+
+        .hero-title {
+            font-size: 64px;
+            font-weight: 700;
+            color: #FFEB3B;
+            text-shadow: 2px 2px 0 #FF5722;
+            line-height: 1.1;
+            margin-bottom: 10px;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: #fff;
+        }
+
+        /* Current Event Section */
+        .current-event {
+            padding: 30px 0;
+            background-color: #F8E4D4;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .see-more {
+            font-size: 14px;
+            color: #333;
+        }
+
+        .see-more:hover {
+            text-decoration:underline
+        }
+
+        .event-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .event-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .event-card.red-bg {
+            border: 2px solid #FF5722;
+        }
+
+        .event-card.yellow-bg {
+            border: 2px solid #FFEB3B;
+        }
+
+        .event-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .event-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .event-content {
+            padding: 16px;
+        }
+
+        .event-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .event-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .event-tag {
+            background-color: #FFEB3B;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .event-button {
+            background-color: #FFEB3B;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            transition: background-color 0.2s;
+        }
+
+        .event-button:hover {
+            background-color: #FDD835;
+        }
+
+        /* About Section */
+        .about-section {
+            background-color: #FF5722;
+            color: white;
+            padding: 40px 0;
+        }
+
+        .about-card {
+            background-color: #FF6E40;
+            border-radius: 8px;
+            padding: 24px;
+            margin-top: 24px;
+        }
+
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .about-image img {
+            border-radius: 8px;
+            width: 100%;
+        }
+
+        .about-text {
+            flex: 2;
+            min-width: 300px;
+        }
+
+        .about-title {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 28px;
+            margin-bottom: 16px;
+        }
+
+        .about-description {
+            font-size: 14px;
+        }
+
+        /* Information Section */
+        .information-section {
+            background-color: #E0E444;
+            padding: 40px 0;
+        }
+
+        .info-container {
+            height: 500px;
+            overflow-y: auto;
+            padding-right: 10px;
+            scrollbar-width: thin;
+            scrollbar-color: #FF5722 #E0E444;
+        }
+
+        /* Customize scrollbar for Chrome, Safari and Opera */
+        .info-container::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .info-container::-webkit-scrollbar-track {
+            background: #E0E444;
+        }
+
+        .info-container::-webkit-scrollbar-thumb {
+            background-color: #FF5722;
+            border-radius: 4px;
+        }
+
+        .info-item {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 24px;
+            background-color: transparent;
+        }
+
+        .info-image {
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+        }
+
+        .info-image img {
+            border-radius: 8px;
+            width: 100%;
+        }
+
+        .info-content {
+            flex: 3;
+            min-width: 300px;
+        }
+
+        .info-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .info-description {
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .info-button {
+            display: inline-block;
+            background-color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            transition: background-color 0.2s;
+        }
+
+        .info-button:hover {
+            background-color: #f5f5f5;
+        }
+
+        /* Popup Styles */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .popup-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .popup-container {
+            width: 90%;
+            max-width: 900px;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            max-height: 90vh;
+        }
+
+        .popup-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .popup-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 30px;
+            height: 30px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 18px;
+            z-index: 1001;
+        }
+
+        .popup-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .popup-info {
+            background-color: #FF5722;
+            color: white;
+            padding: 20px;
+        }
+
+        .popup-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .popup-description {
+            margin-bottom: 20px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .popup-details {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .detail-icon {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .detail-text {
+            font-size: 14px;
+        }
+
+        .popup-social {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 0 20px 20px;
+        }
+
+        .social-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .whatsapp-button {
+            background-color: #000;
+        }
+
+        .instagram-button {
+            background-color: #000;
+        }
+
+        /* Article Popup Styles */
+        .article-popup {
+            overflow-y: auto;
+            max-height: 80vh;
+        }
+
+        .article-header {
+            padding: 20px;
+            background-color: #FF5722;
+            color: white;
+        }
+
+        .article-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+
+        .article-body {
+            padding: 20px;
+        }
+
+        .article-image {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+
+        .article-content p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .article-content h3 {
+            margin: 20px 0 10px;
+            font-size: 18px;
+        }
+
+        .article-source {
+            margin-top: 20px;
+            font-style: italic;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .article-source a {
+            color: #FF5722;
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: black;
+            color: white;
+            padding: 32px 0;
+            text-align: center;
+        }
+
+        .copyright {
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            font-size: 14px;
+        }
+
+        .footer-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 48px;
+            }
+            
+            .event-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-content, .info-item {
+                flex-direction: column;
+            }
+            
+            .info-image {
+                max-width: 100%;
+            }
+            
+            .footer-links {
+                flex-wrap: wrap;
+                gap: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="/" class="logo">
+                <img src="images/logo.png" alt="Tentuvifee Hub Logo">
+            </a>
+            <nav>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html" class="nav-link active">HOME</a></li>
+                    <li class="nav-item"><a href="EVENT.html" class="nav-link">EVENT</a></li>
+                    <li class="nav-item"><a href="ABOUT.html" class="nav-link">ABOUT</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="images/herosec pg1.png" alt="Kelompok relawan berkumpul di depan bangunan dengan atap seng" class="hero-image">
+        <div class="container hero-content">
+            <h1 class="hero-title">TENTUVIFEE<br>HUB</h1>
+            <p class="hero-subtitle">Find Your Event</p>
+        </div>
+    </section>
+
+    <!-- Current Events Section -->
+    <section class="current-event">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Current Event</h2>
+                <a href="/events" class="see-more">see more</a>
+            </div>
+
+            <div class="event-grid">
+                <!-- Event 1 -->
+                <div class="event-card yellow-bg" onclick="openPopup('aktivis-sosial')">
+                    <div class="event-image">
+                        <img src="images/currentevent1.jpg" alt="Aktivis Sosial Indonesia">
+                    </div>
+                    <div class="event-content">
+                        <h3 class="event-title">Aktivis Sosial Indonesia</h3>
+                        <div class="event-footer">
+                            <span class="event-tag">Education</span>
+                            <span class="event-button">Open Recruitment</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 2 -->
+                <a href="/event/green-gr-makassar" class="event-card red-bg">
+                    <div class="event-image">
+                        <img src="images/curentevent222.png" alt="Green Gr Makassar">
+                    </div>
+                    <div class="event-content">
+                        <h3 class="event-title">Green Gr Makassar</h3>
+                        <div class="event-footer">
+                            <span class="event-tag">Education</span>
+                            <span class="event-button">Open Recruitment</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Event 3 -->
+                <a href="/event/komunitas-kun" class="event-card yellow-bg">
+                    <div class="event-image">
+                        <img src="images/currentevent3.jpg" alt="Komunitas KUN">
+                    </div>
+                    <div class="event-content">
+                        <h3 class="event-title">Komunitas KUN</h3>
+                        <div class="event-footer">
+                            <span class="event-tag">Education</span>
+                            <span class="event-button">Open Recruitment</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popup for Aktivis Sosial Indonesia -->
+    <div id="popup-aktivis-sosial" class="popup-overlay">
+        <div class="popup-container">
+            <div class="popup-close" onclick="closePopup('aktivis-sosial')">×</div>
+            <img src="images/popupp.jpg" alt="Aktivis Sosial Indonesia" class="popup-image">
+            <div class="popup-content">
+                <div class="popup-info">
+                    <h2 class="popup-title">Aktivis Sosial Indonesia</h2>
+                    <p class="popup-description">
+                        Aktivis Sosial Indonesia adalah komunitas yang berfokus pada kegiatan sosial dan pendidikan di daerah terpencil. Kami mengajak para relawan untuk bergabung dalam program pengabdian masyarakat yang akan dilaksanakan di Desa Bonto Panno, Maros.
+                    </p>
+                </div>
+                <div class="popup-details">
+                    <div class="detail-item">
+                        <div class="detail-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                        </div>
+                        <div class="detail-text">Desa Bonto Panno, Maros</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                        </div>
+                        <div class="detail-text">10 - 13 Februari 2025<br>Pukul 13:00</div>
+                    </div>
+                </div>
+                <div class="popup-social">
+                    <a href="#" class="social-button whatsapp-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                        </svg>
+                        WhatsApp
+                    </a>
+                    <a href="#" class="social-button instagram-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                        Instagram
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Us Section -->
+    <section class="about-section">
+        <div class="container">
+            <h2 class="section-title">About Us</h2>
+
+            <div class="about-card">
+                <div class="about-content">
+                    <div class="about-image">
+                        <img src="images/about web.jpg" alt="Volunteers working together">
+                    </div>
+                    <div class="about-text">
+                        <h3 class="about-title">WHAT IS<br>TENTUFIVEE HUB??</h3>
+                        <p class="about-description">
+                            Platform ini dibuat untuk memudahkan siapa saja yang ingin terlibat dalam kegiatan sosial dan
+                            menemukan berbagai peluang volunteer. Dengan akses informasi yang mudah, kamu bisa langsung bergabung
+                            dan berkontribusi dalam event yang sesuai dengan minatmu.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Information Section -->
+    <section class="information-section">
+        <div class="container">
+            <h2 class="section-title">Information</h2>
+
+            <div class="info-container">
+                <!-- Info Item 1 -->
+                <div class="info-item">
+                    <div class="info-image">
+                        <img src="images/info1.png" alt="Membantu Secara Ikhlas">
+                    </div>
+                    <div class="info-content">
+                        <h3 class="info-title">Membantu Secara Ikhlas untuk Memanusiakan Manusia</h3>
+                        <p class="info-description">
+                            "Sebagai manusia kita harus menjadi orang yang bermanfaat. Untuk bisa seperti itu, cara setiap
+                            orang berbeda-beda. Salah satunya bergabung di komunitas kemanusiaan, karena bisa memberikan ..."
+                        </p>
+                        <a href="#" class="info-button" onclick="openArticlePopup('hive-sulsel'); return false;">see more</a>
+                    </div>
+                </div>
+
+                <!-- Info Item 2 -->
+                <div class="info-item">
+                    <div class="info-image">
+                        <img src="images/info2.png" alt="Kegiatan Sosial Relawan">
+                    </div>
+                    <div class="info-content">
+                        <h3 class="info-title">Kegiatan Sosial Relawan Milenial Makassar Terus Berkembang</h3>
+                        <p class="info-description">
+                            "Kami sering terlibat dalam kegiatan bersih-bersih masjid dan membantu korban bencana seperti
+                            banjir dan kebakaran," jelas Dila. Kegiatan ini memperkuat solidaritas dan kepedulian di antara ..."
+                        </p>
+                        <a href="/info/2" class="info-button">see more</a>
+                    </div>
+                </div>
+
+                <!-- Info Item 3 -->
+                <div class="info-item">
+                    <div class="info-image">
+                        <img src="images/info3.png" alt="Relawan Nusantara">
+                    </div>
+                    <div class="info-content">
+                        <h3 class="info-title">Relawan Nusantara Luaskan Manfaat dengan Berbagi Paket Buka Puasa di Kota Makassar</h3>
+                        <p class="info-description">
+                            Wilayah Tamalate yang berada di perbatasan antara Gowa dan Makassar dikenal sebagai daerah
+                            padat penduduk. Kehadiran ...
+                        </p>
+                        <a href="/info/3" class="info-button">see more</a>
+                    </div>
+                </div>
+
+                <!-- Info Item 4 -->
+                <div class="info-item">
+                    <div class="info-image">
+                        <img src="images/info4.png" alt="Membangun Masyarakat">
+                    </div>
+                    <div class="info-content">
+                        <h3 class="info-title">Membangun Masyarakat Melalui Aksi Nyata dan Kolaborasi</h3>
+                        <p class="info-description">
+                            Salah satu program utama yang dijalankan oleh Pelopor Kebaikan adalah pengabdian masyarakat.
+                            Pelopor Kebaikan Sulawesi Selatan secara rutin mengunjungi berbagai ...
+                        </p>
+                        <a href="/info/4" class="info-button">see more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article Popup for HIVE Sulsel -->
+    <div id="popup-hive-sulsel" class="popup-overlay">
+        <div class="popup-container article-popup">
+            <div class="popup-close" onclick="closePopup('hive-sulsel')">×</div>
+            <div class="article-header">
+                <h2 class="article-title">Komunitas Relawan HIVE Sulsel</h2>
+                <div class="article-meta">
+                    <span>Selasa, 21 November 2023 08:33 am</span>
+                    <span>Oleh: WARTA HIDAYAT</span>
+                </div>
+            </div>
+            <div class="article-body">
+                <img src="images/info1.png" alt="Komunitas Relawan HIVE Sulsel" class="article-image">
+                <div class="article-content">
+                    <p>MAKASSAR.BKM.COM—Komunitas relawan kemanusiaan terus beraktivitas di Kota Makassar. Mereka membersarmai warga yang tertimpa bencana. Human Initiative Volunteer Energy (HIVE) merupakan salah satunya.</p>
+                    
+                    <p>SEKRETARIS Umum (Sekum) HIVE Sulsel periode 2022-2023 Lathifa Nur Fauzia bersama seorang relawan Ismail Hidayatullah hadir menjadi tamu siaran untuk kanal Youtube Berita Kota Makassar. Tifa –sapaan akrab Lathifa– merupakan mahasiswa akhir di Program Studi (Prodi) Kesehatan Masyarakat Universitas Hasanuddin. Sementara Ismail Hidayatullah yang biasa dipanggil Dayat kini telah bekerja.</p>
+                    
+                    <p>Bagi keduanya, komunitas kemanusiaan sangatlah penting. Menurut Tifa, berdasarkan pengalaman yang didapatkannya selama ini, bergabung di komunitas relawan mampu meningkatkan empati diri sendiri.</p>
+                    
+                    <h3>Tentang HIVE Sulsel</h3>
+                    <p>HIVE Sulsel adalah komunitas relawan yang fokus pada kegiatan kemanusiaan di Sulawesi Selatan. Mereka aktif membantu korban bencana, memberikan edukasi, dan melakukan berbagai kegiatan sosial untuk membantu masyarakat yang membutuhkan. Komunitas ini beranggotakan mahasiswa dan profesional muda yang memiliki kepedulian tinggi terhadap isu-isu sosial dan kemanusiaan.
+
+                    <p>Sejak didirikan, HIVE Sulsel telah terlibat dalam berbagai kegiatan seperti bantuan bencana alam, program edukasi untuk anak-anak di daerah terpencil, dan kampanye kesehatan masyarakat. Mereka juga aktif berkolaborasi dengan komunitas lain untuk memperluas jangkauan bantuan.</p>
+                    
+                    <p>"Sebagai manusia kita harus menjadi orang yang bermanfaat. Untuk bisa seperti itu, cara setiap orang berbeda-beda. Salah satunya bergabung di komunitas kemanusiaan, karena bisa memberikan dampak langsung kepada masyarakat," ujar Tifa.</p>
+                    
+                    <h3>Kegiatan dan Program</h3>
+                    <p>HIVE Sulsel memiliki beberapa program unggulan, termasuk tanggap darurat bencana, edukasi lingkungan, dan pemberdayaan masyarakat. Relawan HIVE dibekali dengan pelatihan khusus agar dapat memberikan bantuan yang efektif saat dibutuhkan.</p>
+                    
+                    <p>Dayat menambahkan bahwa pengalaman menjadi relawan telah mengubah perspektifnya tentang kehidupan. "Ketika kita melihat langsung penderitaan orang lain, kita jadi lebih bersyukur dan termotivasi untuk terus membantu," jelasnya.</p>
+                    
+                    <div class="article-source">
+                        <p>Sumber: <a href="https://beritakotamakassar.com/2023/11/21/komunitas-relawan-hive-sulsel/" target="_blank">beritakotamakassar.com/2023/11/21/komunitas-relawan-hive-sulsel/</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="copyright">© 2025 Tentuvifee Hub. All rights reserved</div>
+            <div class="footer-links">
+                <a href="/about" class="footer-link">About Us</a>
+                <a href="/privacy" class="footer-link">Privacy Policy</a>
+                <a href="/faq" class="footer-link">FAQ</a>
+                <a href="/social" class="footer-link">Social Media</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Popup functionality
+        function openPopup(id) {
+            document.getElementById('popup-' + id).classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling when popup is open
+        }
+
+        function closePopup(id) {
+            document.getElementById('popup-' + id).classList.remove('active');
+            document.body.style.overflow = 'auto'; // Re-enable scrolling
+        }
+
+        // Article popup functionality
+        function openArticlePopup(id) {
+            openPopup(id);
+        }
+
+        // Close popup when clicking outside the popup content
+        document.addEventListener('click', function(event) {
+            if (event.target.classList.contains('popup-overlay')) {
+                const id = event.target.id.replace('popup-', '');
+                closePopup(id);
+            }
+        });
+
+        // Close popup when pressing Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const activePopup = document.querySelector('.popup-overlay.active');
+                if (activePopup) {
+                    const id = activePopup.id.replace('popup-', '');
+                    closePopup(id);
+                }
+            }
+        });
+
+        // Optional: Add smooth scrolling for the information section
+        document.addEventListener('DOMContentLoaded', function() {
+            const infoContainer = document.querySelector('.info-container');
+            
+            // Add smooth scrolling behavior
+            infoContainer.style.scrollBehavior = 'smooth';
+            
+            // Optional: Auto-scroll functionality
+            let autoScroll = false;
+            let scrollSpeed = 1; // pixels per animation frame
+            let lastScrollPosition = 0;
+            
+            // Function to toggle auto-scroll
+            function toggleAutoScroll() {
+                autoScroll = !autoScroll;
+                if (autoScroll) {
+                    lastScrollPosition = infoContainer.scrollTop;
+                    autoScrollFunction();
+                }
+            }
+            
+            // Auto-scroll function
+            function autoScrollFunction() {
+                if (!autoScroll) return;
+                
+                infoContainer.scrollTop += scrollSpeed;
+                
+                // If reached the bottom, scroll back to top
+                if (infoContainer.scrollTop >= (infoContainer.scrollHeight - infoContainer.clientHeight)) {
+                    infoContainer.scrollTop = 0;
+                }
+                
+                requestAnimationFrame(autoScrollFunction);
+            }
+            
+            // Double-click to toggle auto-scroll (optional feature)
+            infoContainer.addEventListener('dblclick', toggleAutoScroll);
+        });
+    </script>
+</body>
+</html>
