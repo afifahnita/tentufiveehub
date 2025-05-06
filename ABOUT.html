@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afifah Qonita Muharani - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: #FF5722;
+            padding: 39px 0;
+            border-radius: 0 0 0px 0px;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .nav-item {
+            margin: 0;
+        }
+
+        .nav-list {
+            display: flex;
+            list-style-type: none;
+            gap: 30px;
+        }
+
+        .nav-link {
+            color: #FFEB3B;
+            font-weight: 600;
+            font-size: 16px;
+            transition: opacity 0.2s;
+            display: block; 
+            padding: 5px 0;
+        }
+
+        .nav-link:hover {
+            opacity: 0.8;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .greeting {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .name {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #FF5722;
+        }
+
+        .bio {
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items:right;
+            gap: 10px;
+            background-color: #FF5722;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #E64A19;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: right;
+        }
+
+        .hero-image img {
+            max-width: 80%;
+            border-radius: 10px;
+        }
+
+        /* Section Styles */
+        .section-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        /* Projects Section */
+        .projects {
+            padding: 60px 0;
+            background-color: #FF5C34;
+        }
+
+        .projects-slider-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .projects-slider {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none; /* Hide scrollbar for Firefox */
+            -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
+            padding: 10px 0;
+        }
+
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .projects-slider::-webkit-scrollbar {
+            display: none;
+        }
+
+        .project-card {
+            flex: 0 0 calc(33.333% - 20px);
+            min-width: 300px;
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            scroll-snap-align: start;
+        }
+
+        .project-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-info {
+            padding: 20px;
+        }
+
+        .project-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .project-description {
+            font-size: 14px;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .project-tag {
+            font-size: 12px;
+            color: #FF5722;
+        }
+
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            pointer-events: none;
+            padding: 0 10px;
+        }
+
+        .slider-prev, .slider-next {
+            background-color: rgba(255, 255, 255, 0.8);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            pointer-events: auto;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s;
+        }
+
+        .slider-prev:hover, .slider-next:hover {
+            background-color: #fff;
+        }
+
+        /* Activities Section */
+        .activities {
+            padding: 60px 0;
+            background-color: #F8E4D4;
+        }
+
+        .activities-container {
+            height: 500px;
+            overflow-y: auto;
+            scroll-snap-type: y mandatory;
+            scrollbar-width: thin;
+            scrollbar-color: #FF5722 #f1f1f1;
+        }
+
+        /* Customize scrollbar for Chrome, Safari and Opera */
+        .activities-container::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .activities-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        .activities-container::-webkit-scrollbar-thumb {
+            background-color: #FF5722;
+            border-radius: 4px;
+        }
+
+        .activity-item {
+            position: relative;
+            height: 250px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            scroll-snap-align: start;
+        }
+
+        .activity-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .activity-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            padding: 20px;
+            color: white;
+        }
+
+        .activity-title {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        /* Tools Section */
+        .tools {
+            padding: 60px 0;
+            background-color: #FFEB3B;
+        }
+
+        .tools-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .tool-icon {
+            width: 60px;
+            height: 60px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .tool-icon img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: black;
+            color: white;
+            padding: 32px 0;
+            text-align: center;
+        }
+
+        .copyright {
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            font-size: 14px;
+        }
+
+        .footer-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+            
+            .project-card {
+                flex: 0 0 calc(50% - 20px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .name {
+                font-size: 28px;
+            }
+            
+            .project-card {
+                flex: 0 0 calc(100% - 20px);
+            }
+            
+            .activities-container {
+                height: 400px;
+            }
+            
+            .activity-item {
+                height: 200px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .nav-list {
+                gap: 15px;
+            }
+            
+            .greeting {
+                font-size: 20px;
+            }
+            
+            .name {
+                font-size: 24px;
+            }
+            
+            .tools-container {
+                gap: 15px;
+            }
+            
+            .tool-icon {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="/" class="logo">
+                <img src="images/logo.png" alt="Tentuvifee Hub Logo">
+            </a>
+            <nav>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="HOME.html" class="nav-link">HOME</a></li>
+                    <li class="nav-item"><a href="EVENT.html" class="nav-link">EVENT</a></li>
+                    <li class="nav-item"><a href="ABOUT.html" class="nav-link active">ABOUT</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="greeting">Hello there!</h1>
+                    <h2 class="name">I'm Afifah Qonita Muharani</h2>
+                    <p class="bio">
+                        I am a 4th-semester student who is passionate and highly dedicated to learning in the field of Digital Business. Although I do not yet have formal work experience, I have actively developed my knowledge and skills through academic projects. My ability to communicate effectively and work in a team has been honed through these projects, and I am ready to face new challenges with enthusiasm and a high level of openness.
+                    </p>
+                    <a href="#" class="cta-button">
+                        <span>Contact Me</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                </div>
+                <div class="hero-image">
+                    <img src="images/Frame 7.png" alt="Afifah Qonita Muharani">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Projects Section -->
+    <section class="projects">
+        <div class="container">
+            <h2 class="section-title">Latest Project</h2>
+            
+            <div class="projects-slider-container">
+                <div class="projects-slider">
+                    <!-- Project 1 -->
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="images/project1.png" alt="es teh solo">
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-title">Es teh Solo</h3>
+                            <p class="project-description">Creating design for @esteh_solo.ri first post</p>
+                            <span class="project-tag">Graphic Design • F&B Brand</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 2 -->
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="images/project2.png" alt="Ngekos">
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-title">Ngekos</h3>
+                            <p class="project-description">Creating a UI/UX prototype with the team using Figma tools to enhance skills and understand User Interface design principles.</p>
+                            <span class="project-tag">Web Development • UI/UX</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 3 -->
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="images/project3.png" alt="Greenovation">
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-title">Greenovation</h3>
+                            <p class="project-description">Creating design feeds for upcoming community @greenoovation</p>
+                            <span class="project-tag">Design Graphic • Environment Community</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 4 -->
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="images/project4.png" alt="greenoovation">
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-title">Greenovation</h3>
+                            <p class="project-description">As PDD Division i got a PIC to making design for @greenoovation PDH”s </p>
+                            <span class="project-tag">Fashion Design • Environment Community</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 5 -->
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="images/project5.jpg" alt="Aktivis Sosial Indonesia">
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-title">aktivis-sosial-indonesia</h3>
+                            <p class="project-description">As PDD committee, i got a PIC to making design for Vol.XIII at @aktivissosialindonesia</p>
+                            <span class="project-tag">Graphic Design • Socil Community</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 6 -->
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="images/project6.jpg" alt="Lite Light">
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-title">Lite Light</h3>
+                            <p class="project-description">Portable book reading lamp product and  having a social media to managed for marketing.</p>
+                            <span class="project-tag">Social Media Specialist • Marketing</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Slider Navigation -->
+                <div class="slider-nav">
+                    <button class="slider-prev" aria-label="Previous projects">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
+                    </button>
+                    <button class="slider-next" aria-label="Next projects">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Activities Section -->
+    <section class="activities">
+        <div class="container">
+            <h2 class="section-title">Latest Activity</h2>
+            
+            <div class="activities-container">
+                <!-- Activity 1 -->
+                <div class="activity-item">
+                    <img src="images/activity1.png" alt="Volunteer Aktivis Sosial Indonesia" class="activity-image">
+                    <div class="activity-overlay">
+                        <h3 class="activity-title">VOLUNTEER AKTIVIS SOSIAL INDONESIA</h3>
+                    </div>
+                </div>
+                
+                <!-- Activity 2 -->
+                <div class="activity-item">
+                    <img src="images/activity2.png" alt="UMKM Go Digital" class="activity-image">
+                    <div class="activity-overlay">
+                        <h3 class="activity-title">UMKM GO DIGITAL</h3>
+                    </div>
+                </div>
+                
+                <!-- Activity 3 -->
+                <div class="activity-item">
+                    <img src="images/activity3.png" alt="Volunteer Bangku Pelosok" class="activity-image">
+                    <div class="activity-overlay">
+                        <h3 class="activity-title">VOLUNTEER BANGKU PELOSOK</h3>
+                    </div>
+                </div>
+                
+                <!-- Activity 4 -->
+                <div class="activity-item">
+                    <img src="images/activity4.png" alt="Van Deventer Maas Indonesia Scholarship Regional Meeting" class="activity-image">
+                    <div class="activity-overlay">
+                        <h3 class="activity-title">VAN DEVENTER MAAS INDONESIA SCHOLARSHIP REGIONAL MEETING</h3>
+                    </div>
+                </div>
+                
+                <!-- Activity 5 -->
+                <div class="activity-item">
+                    <img src="images/activity5.png" alt="Digital Marketing Showcase" class="activity-image">
+                    <div class="activity-overlay">
+                        <h3 class="activity-title">DIGITAL MARKETING SHOWCASE</h3>
+                    </div>
+                </div>
+                
+                <!-- Activity 6 -->
+                <div class="activity-item">
+                    <img src="images/activity6.png" alt="GDGOC UX/UI Bootcamp" class="activity-image">
+                    <div class="activity-overlay">
+                        <h3 class="activity-title">GDGOC UX/UI BOOTCAMP</h3>
+                    </div>
+                </div>
+                
+                <!-- Activity 7 -->
+                <div class="activity-item">
+                    <img src="images/activity7.png" alt="HIPMI PT UNM" class="activity-image">
+                    <div class="activity-overlay">
+                        <h3 class="activity-title">HIPMI PT UNM</h3>
+                    </div>
+                </div>
+                
+                <!-- Activity 8 -->
+                <div class="activity-item">
+                    <img src="images/activity8.png" alt="Jalan Bareng Community" class="activity-image">
+                    <div class="activity-overlay">
+                        <h3 class="activity-title">JALAN BARENG COMMUNITY</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section class="tools">
+        <div class="container">
+            <h2 class="section-title">Tools</h2>
+            <div class="tools-container">
+                <div class="tool-icon">
+                    <img src="images/tools1.png" alt="Figma">
+                </div>
+                <div class="tool-icon">
+                    <img src="images/tools22.jpg" alt="Adobe">
+                </div>
+                <div class="tool-icon">
+                    <img src="images/tools3.png" alt="Chrome">
+                </div>
+                <div class="tool-icon">
+                    <img src="images/tools4.png" alt="Notion">
+                </div>
+                <div class="tool-icon">
+                    <img src="images/tools5.png" alt="Miro">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="copyright">© 2025 Tentuvifee Hub. All rights reserved</div>
+            <div class="footer-links">
+                <a href="/about" class="footer-link">About Us</a>
+                <a href="/privacy" class="footer-link">Privacy Policy</a>
+                <a href="/faq" class="footer-link">FAQ</a>
+                <a href="/social" class="footer-link">Social Media</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for horizontal scrolling in Projects section
+        document.addEventListener('DOMContentLoaded', function() {
+            const slider = document.querySelector('.projects-slider');
+            const prevBtn = document.querySelector('.slider-prev');
+            const nextBtn = document.querySelector('.slider-next');
+            const cardWidth = document.querySelector('.project-card').offsetWidth + 20; // Card width + margin
+            
+            // Scroll to previous projects
+            prevBtn.addEventListener('click', function() {
+                slider.scrollBy({
+                    left: -cardWidth * 3,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Scroll to next projects
+            nextBtn.addEventListener('click', function() {
+                slider.scrollBy({
+                    left: cardWidth * 3,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
