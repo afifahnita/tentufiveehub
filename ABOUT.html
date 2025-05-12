@@ -110,19 +110,27 @@
             font-size: 16px;
         }
 
-        .cta-button {
-            display: inline-flex;
-            align-items:right;
-            gap: 10px;
-            background-color: #FF5722;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-weight: 500;
-            transition: background-color 0.3s;
+        /* Social Media Icons */
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
         }
 
-        .cta-button:hover {
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #FF5722;
+            color: white;
+            border-radius: 50%;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-3px);
             background-color: #E64A19;
         }
 
@@ -365,6 +373,10 @@
             .project-card {
                 flex: 0 0 calc(50% - 20px);
             }
+            
+            .social-icons {
+                justify-content: center;
+            }
         }
 
         @media (max-width: 768px) {
@@ -441,13 +453,36 @@
                     <p class="bio">
                         I am a 4th-semester student who is passionate and highly dedicated to learning in the field of Digital Business. Although I do not yet have formal work experience, I have actively developed my knowledge and skills through academic projects. My ability to communicate effectively and work in a team has been honed through these projects, and I am ready to face new challenges with enthusiasm and a high level of openness.
                     </p>
-                    <a href="#" class="cta-button">
-                        <span>Contact Me</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                            <polyline points="12 5 19 12 12 19"></polyline>
-                        </svg>
-                    </a>
+                    <!-- Social Media Icons -->
+                    <div class="social-icons">
+                        <!-- Instagram Icon -->
+                        <a href="https://www.instagram.com/afifahnitaa?utm_source=qr&igsh=Mmw3YjYwbXFzd3Ex" target="_blank" class="social-icon" aria-label="Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                        
+                        <!-- Blogger Icon with B shape -->
+                        <a href="https://afifahnita.blogspot.com" target="_blank" class="social-icon" aria-label="Blogger">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6 4h8a4 4 0 0 1 4 4v8a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8a4 4 0 0 1 4-4z"></path>
+                                <path d="M8 11h4"></path>
+                                <path d="M8 16h6a2 2 0 0 0 2-2v-1"></path>
+                                <path d="M8 7h2a2 2 0 0 1 2 2v0"></path>
+                            </svg>
+                        </a>
+                        
+                        <!-- LinkedIn Icon -->
+                        <a href="https://www.linkedin.com/in/afifahqonitamuharani?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="social-icon" aria-label="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                        </a>
+                    </div>
                 </div>
                 <div class="hero-image">
                     <img src="images/Frame 7.png" alt="Afifah Qonita Muharani">
@@ -506,7 +541,7 @@
                         </div>
                         <div class="project-info">
                             <h3 class="project-title">Greenovation</h3>
-                            <p class="project-description">As PDD Division i got a PIC to making design for @greenoovation PDH”s </p>
+                            <p class="project-description">As PDD Division i got a PIC to making design for @greenoovation PDH"s </p>
                             <span class="project-tag">Fashion Design • Environment Community</span>
                         </div>
                     </div>
