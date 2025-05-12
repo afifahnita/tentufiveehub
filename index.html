@@ -89,7 +89,7 @@
         position: relative;
         height: 700px;
         overflow: hidden;
-        margin-bottom: 0px;
+        margin-bottom: 0;
     }
 
     .hero-image {
@@ -97,8 +97,8 @@
         top: 0;
         left: 0;
         width: 100%;
-        height: 99%;
-        object-fit:cover;
+        height: 100%;
+        object-fit: cover;
         filter: brightness(0.5);
     }
 
@@ -130,6 +130,7 @@
     .current-event {
         padding: 30px 0;
         background-color: #F8E4D4;
+        margin-top: 0;
     }
 
     .section-header {
@@ -274,7 +275,7 @@
 
     /* Information Section */
     .information-section {
-        background-color: #E0E444;
+        background-color: #F8E4D4;
         padding: 40px 0;
     }
 
@@ -283,7 +284,7 @@
         overflow-y: auto;
         padding-right: 10px;
         scrollbar-width: thin;
-        scrollbar-color: #FF5722 #E0E444;
+        scrollbar-color: #999 #f1f1f1; /* Ubah warna scrollbar ke warna standar */
     }
 
     /* Customize scrollbar for Chrome, Safari and Opera */
@@ -292,11 +293,11 @@
     }
 
     .info-container::-webkit-scrollbar-track {
-        background: #E0E444;
+        background: #f1f1f1; /* Ubah warna track scrollbar */
     }
 
     .info-container::-webkit-scrollbar-thumb {
-        background-color: #FF5722;
+        background-color: #999; /* Ubah warna thumb scrollbar */
         border-radius: 4px;
     }
 
@@ -373,7 +374,7 @@
     .popup-container {
         width: 90%;
         max-width: 900px;
-        background-color: white;
+        background-color: #F8E4D4;
         border-radius: 10px;
         overflow: hidden;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
@@ -607,7 +608,7 @@
 
 <!-- Hero Section -->
 <section class="hero">
-    <img src="images/herosec pg1.png" alt="Kelompok relawan berkumpul di depan bangunan dengan atap seng" class="hero-image">
+    <img src="images/herosec pg1.png" alt="Kelompok relawan" class="hero-image">
     <div class="container hero-content">
         <h1 class="hero-title">TENTUVIFEE<br>HUB</h1>
         <p class="hero-subtitle">Find Your Event</p>
@@ -619,7 +620,7 @@
     <div class="container">
         <div class="section-header">
             <h2 class="section-title">Current Event</h2>
-            <a href="/events" class="see-more">see more</a>
+            <a href="EVENT.html" class="see-more">see more</a>
         </div>
 
         <div class="event-grid">
@@ -645,7 +646,7 @@
                 <div class="event-content">
                     <h3 class="event-title">Green Gr Makassar</h3>
                     <div class="event-footer">
-                        <span class="event-tag">Education</span>
+                        <span class="event-tag">Environment</span>
                         <span class="event-button">Open Recruitment</span>
                     </div>
                 </div>
@@ -672,12 +673,14 @@
 <div id="popup-aktivis-sosial" class="popup-overlay">
     <div class="popup-container">
         <div class="popup-close" onclick="closePopup('aktivis-sosial')">×</div>
-        <img src="images/popupp.jpg" alt="Aktivis Sosial Indonesia" class="popup-image">
+        <img src="images/currentevent1.jpg" alt="Aktivis Sosial Indonesia" class="popup-image">
         <div class="popup-content">
             <div class="popup-info">
                 <h2 class="popup-title">Aktivis Sosial Indonesia</h2>
                 <p class="popup-description">
-                    Aktivis Sosial Indonesia adalah komunitas yang berfokus pada kegiatan sosial dan pendidikan di daerah terpencil. Kami mengajak para relawan untuk bergabung dalam program pengabdian masyarakat yang akan dilaksanakan di Desa Bonto Panno, Maros.
+                    Aktivis Sosial Indonesia adalah komunitas yang berfokus pada kegiatan sosial dan pendidikan di daerah terpencil. 
+                    Kami mengajak para relawan untuk bergabung dalam program pengabdian masyarakat yang akan dilaksanakan di Desa Bonto Panno, Maros.
+                    Program ini bertujuan untuk memberikan pendampingan pendidikan dan kesehatan bagi masyarakat setempat.
                 </p>
             </div>
             <div class="popup-details">
@@ -726,12 +729,14 @@
 <div id="popup-green-gr" class="popup-overlay">
     <div class="popup-container">
         <div class="popup-close" onclick="closePopup('green-gr')">×</div>
-        <img src="images/popupp.jpg" alt="Green Gr Makassar" class="popup-image">
+        <img src="images/curentevent222.png" alt="Green Gr Makassar" class="popup-image">
         <div class="popup-content">
             <div class="popup-info">
                 <h2 class="popup-title">Green Gr Makassar</h2>
                 <p class="popup-description">
-                    Aktivis Sosial Indonesia adalah komunitas yang berfokus pada kegiatan sosial dan pendidikan di daerah terpencil. Kami mengajak para relawan untuk bergabung dalam program pengabdian masyarakat yang akan dilaksanakan di Desa Bonto Panno, Maros.
+                    Green Gr Makassar adalah komunitas lingkungan yang fokus pada penghijauan kota dan edukasi lingkungan. 
+                    Program ini mengajak relawan untuk berpartisipasi dalam kegiatan penanaman pohon di area publik, 
+                    pembersihan pantai, dan kampanye kesadaran lingkungan di sekolah-sekolah.
                 </p>
             </div>
             <div class="popup-details">
@@ -742,7 +747,7 @@
                             <circle cx="12" cy="10" r="3"></circle>
                         </svg>
                     </div>
-                    <div class="detail-text">Desa Bonto Panno, Maros</div>
+                    <div class="detail-text">Pantai Losari, Makassar</div>
                 </div>
                 <div class="detail-item">
                     <div class="detail-icon">
@@ -753,7 +758,7 @@
                             <line x1="3" y1="10" x2="21" y2="10"></line>
                         </svg>
                     </div>
-                    <div class="detail-text">10 - 13 Februari 2025<br>Pukul 13:00</div>
+                    <div class="detail-text">5 - 6 Maret 2025<br>Pukul 07:00</div>
                 </div>
             </div>
             <div class="popup-social">
@@ -780,12 +785,14 @@
 <div id="popup-komunitas-kun" class="popup-overlay">
     <div class="popup-container">
         <div class="popup-close" onclick="closePopup('komunitas-kun')">×</div>
-        <img src="images/popupp.jpg" alt="Komunitas KUN" class="popup-image">
+        <img src="images/currentevent3.jpg" alt="Komunitas KUN" class="popup-image">
         <div class="popup-content">
             <div class="popup-info">
                 <h2 class="popup-title">Komunitas KUN</h2>
                 <p class="popup-description">
-                    Aktivis Sosial Indonesia adalah komunitas yang berfokus pada kegiatan sosial dan pendidikan di daerah terpencil. Kami mengajak para relawan untuk bergabung dalam program pengabdian masyarakat yang akan dilaksanakan di Desa Bonto Panno, Maros.
+                    Komunitas KUN adalah komunitas pendidikan yang fokus pada pengembangan literasi anak-anak di daerah pinggiran kota Makassar. 
+                    Program ini mengajak relawan untuk terlibat dalam kegiatan belajar mengajar, mendongeng, dan berbagai aktivitas kreatif 
+                    untuk meningkatkan minat baca dan kemampuan literasi anak-anak.
                 </p>
             </div>
             <div class="popup-details">
@@ -796,7 +803,7 @@
                             <circle cx="12" cy="10" r="3"></circle>
                         </svg>
                     </div>
-                    <div class="detail-text">Desa Bonto Panno, Maros</div>
+                    <div class="detail-text">Kelurahan Tamalanrea, Makassar</div>
                 </div>
                 <div class="detail-item">
                     <div class="detail-icon">
@@ -807,7 +814,7 @@
                             <line x1="3" y1="10" x2="21" y2="10"></line>
                         </svg>
                     </div>
-                    <div class="detail-text">10 - 13 Februari 2025<br>Pukul 13:00</div>
+                    <div class="detail-text">15 - 17 Maret 2025<br>Pukul 09:00</div>
                 </div>
             </div>
             <div class="popup-social">
@@ -870,7 +877,134 @@
     </div>
 </div>
 
-<!-- About Us Section -->
+<!-- Article Popup for Relawan Milenial Makassar -->
+<div id="popup-relawan-milenial" class="popup-overlay">
+    <div class="popup-container article-popup">
+        <div class="popup-close" onclick="closePopup('relawan-milenial')">×</div>
+        <div class="article-header">
+            <h2 class="article-title">Kegiatan Sosial Relawan Milenial Makassar Terus Berkembang</h2>
+            <div class="article-meta">
+                <span>Jumat, 15 Januari 2025 10:45 am</span>
+                <span>Oleh: Tim Redaksi RRI</span>
+            </div>
+        </div>
+        <div class="article-body">
+            <img src="images/info2.png" alt="Kegiatan Sosial Relawan Milenial Makassar" class="article-image">
+            <div class="article-content">
+                <p>MAKASSAR - Kegiatan sosial yang dilakukan oleh komunitas relawan milenial di Kota Makassar terus menunjukkan perkembangan positif. Berbagai inisiatif sosial yang digerakkan oleh anak muda ini memberikan dampak signifikan bagi masyarakat setempat.</p>
+                
+                <p>Koordinator Relawan Milenial Makassar, Dila Fajriani, mengatakan bahwa jumlah anggota komunitas mereka terus bertambah dalam dua tahun terakhir. "Kami sering terlibat dalam kegiatan bersih-bersih masjid dan membantu korban bencana seperti banjir dan kebakaran," jelas Dila.</p>
+                
+                <p>Kegiatan ini memperkuat solidaritas dan kepedulian di antara generasi muda Makassar. Mereka tidak hanya fokus pada bantuan material, tetapi juga memberikan pendampingan psikososial bagi korban bencana.</p>
+                
+                <h3>Program Unggulan</h3>
+                <p>Salah satu program unggulan Relawan Milenial Makassar adalah "Sabtu Berbagi" yang rutin diadakan setiap minggu. Program ini melibatkan pembagian makanan untuk masyarakat kurang mampu dan tunawisma di berbagai titik di Kota Makassar.</p>
+
+                <p>"Kami juga mengadakan kelas belajar gratis untuk anak-anak di pemukiman padat penduduk. Banyak mahasiswa yang bergabung sebagai pengajar sukarela," tambah Dila.</p>
+                
+                <h3>Dukungan Pemerintah</h3>
+                <p>Pemerintah Kota Makassar menyambut baik inisiatif para relawan milenial ini. Kepala Dinas Sosial Kota Makassar, Irfan Sulaiman, mengatakan bahwa pihaknya siap mendukung kegiatan-kegiatan positif yang diinisiasi oleh anak muda.</p>
+                
+                <p>"Kami mengapresiasi semangat dan dedikasi para relawan milenial. Mereka membuktikan bahwa generasi muda bisa memberikan kontribusi nyata bagi masyarakat," ujar Irfan.</p>
+                
+                <p>Ke depannya, Relawan Milenial Makassar berencana untuk memperluas jangkauan kegiatan mereka ke daerah-daerah pinggiran kota dan pulau-pulau kecil di sekitar Makassar yang masih membutuhkan bantuan.</p>
+                
+                <div class="article-source">
+                    <p>Sumber: <a href="https://www.rri.co.id/daerah/914511/kegiatan-sosial-relawan-milenial-makassar-terus-berkembang" target="_blank">www.rri.co.id/daerah/914511/kegiatan-sosial-relawan-milenial-makassar-terus-berkembang</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Article Popup for Relawan Nusantara -->
+<div id="popup-relawan-nusantara" class="popup-overlay">
+    <div class="popup-container article-popup">
+        <div class="popup-close" onclick="closePopup('relawan-nusantara')">×</div>
+        <div class="article-header">
+            <h2 class="article-title">Relawan Nusantara Luaskan Manfaat dengan Berbagi Paket Buka Puasa di Kota Makassar</h2>
+            <div class="article-meta">
+                <span>Rabu, 20 Maret 2025 16:30 pm</span>
+                <span>Oleh: Tim Relawan Nusantara</span>
+            </div>
+        </div>
+        <div class="article-body">
+            <img src="images/info3.png" alt="Relawan Nusantara Berbagi Paket Buka Puasa" class="article-image">
+            <div class="article-content">
+                <p>MAKASSAR - Relawan Nusantara Cabang Makassar kembali menggelar kegiatan berbagi paket buka puasa untuk masyarakat kurang mampu di wilayah Tamalate, Kota Makassar. Kegiatan yang berlangsung selama bulan Ramadhan ini bertujuan untuk meringankan beban masyarakat prasejahtera di kawasan tersebut.</p>
+                
+                <p>Wilayah Tamalate yang berada di perbatasan antara Gowa dan Makassar dikenal sebagai daerah padat penduduk. Kehadiran Relawan Nusantara di wilayah ini diharapkan dapat memberikan manfaat bagi masyarakat setempat, terutama selama bulan suci Ramadhan.</p>
+                
+                <h3>Distribusi Paket Berbuka</h3>
+                <p>Koordinator kegiatan, Ahmad Fauzi, menjelaskan bahwa distribusi paket berbuka dilakukan setiap hari selama bulan Ramadhan dengan target 100 paket per hari. "Kami fokus pada daerah-daerah yang memang membutuhkan, seperti pemukiman padat penduduk dan kawasan pinggiran kota," ujarnya.</p>
+
+                <p>Paket berbuka yang dibagikan berisi menu lengkap termasuk makanan pokok, lauk pauk, buah, dan minuman. Selain itu, Relawan Nusantara juga membagikan paket sembako untuk keluarga yang membutuhkan.</p>
+                
+                <h3>Kolaborasi dengan Komunitas Lokal</h3>
+                <p>Kegiatan ini tidak hanya melibatkan anggota Relawan Nusantara, tetapi juga berkolaborasi dengan komunitas lokal dan mahasiswa dari berbagai perguruan tinggi di Makassar. "Kami percaya bahwa dengan berkolaborasi, dampak yang diberikan akan lebih luas dan berkelanjutan," kata Fauzi.</p>
+                
+                <p>Salah satu relawan, Nurul Hidayah, mengungkapkan bahwa kegiatan ini memberikan pengalaman berharga baginya. "Melihat senyum dan rasa syukur dari masyarakat yang menerima bantuan membuat lelah kami terbayar. Ini adalah bentuk ibadah yang langsung bisa dirasakan manfaatnya," ungkapnya.</p>
+                
+                <h3>Rencana Ke Depan</h3>
+                <p>Setelah bulan Ramadhan, Relawan Nusantara Makassar berencana untuk melanjutkan program pemberdayaan masyarakat di wilayah Tamalate. Program tersebut meliputi pelatihan keterampilan, pendampingan UMKM, dan edukasi kesehatan.</p>
+                
+                <p>"Kami tidak hanya ingin memberikan bantuan yang sifatnya konsumtif, tetapi juga ingin membantu masyarakat untuk mandiri secara ekonomi," tutup Fauzi.</p>
+                
+                <div class="article-source">
+                    <p>Sumber: <a href="https://www.relawannusantara.id/relawan-nusantara-luaskan-manfaat-dengan-berbagi-paket-buka-puasa-di-kota-makassar/" target="_blank">www.relawannusantara.id/relawan-nusantara-luaskan-manfaat-dengan-berbagi-paket-buka-puasa-di-kota-makassar/</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Article Popup for Pelopor Kebaikan -->
+<div id="popup-pelopor-kebaikan" class="popup-overlay">
+    <div class="popup-container article-popup">
+        <div class="popup-close" onclick="closePopup('pelopor-kebaikan')">×</div>
+        <div class="article-header">
+            <h2 class="article-title">Membangun Masyarakat Melalui Aksi Nyata dan Kolaborasi</h2>
+            <div class="article-meta">
+                <span>Senin, 3 Maret 2025 09:15 am</span>
+                <span>Oleh: Tim Pelopor Kebaikan</span>
+            </div>
+        </div>
+        <div class="article-body">
+            <img src="images/info4.png" alt="Pelopor Kebaikan dalam Aksi Sosial" class="article-image">
+            <div class="article-content">
+                <p>MAKASSAR - Komunitas Pelopor Kebaikan terus menunjukkan komitmennya dalam membangun masyarakat melalui berbagai program sosial dan kemanusiaan. Dengan semangat kolaborasi dan aksi nyata, komunitas ini telah memberikan dampak positif bagi masyarakat di berbagai wilayah Sulawesi Selatan.</p>
+                
+                <h3>Program Pengabdian Masyarakat</h3>
+                <p>Salah satu program utama yang dijalankan oleh Pelopor Kebaikan adalah pengabdian masyarakat. Pelopor Kebaikan Sulawesi Selatan secara rutin mengunjungi berbagai daerah terpencil untuk memberikan bantuan dan pendampingan kepada masyarakat yang membutuhkan.</p>
+
+                <p>"Kami percaya bahwa perubahan harus dimulai dari aksi nyata. Tidak cukup hanya dengan berbicara, tetapi harus ada tindakan konkret yang bisa dirasakan langsung oleh masyarakat," ujar Rahmat Hidayat, Koordinator Pelopor Kebaikan Sulawesi Selatan.</p>
+                
+                <h3>Kolaborasi Lintas Sektor</h3>
+                <p>Pelopor Kebaikan menyadari bahwa untuk menciptakan dampak yang lebih besar, diperlukan kolaborasi dengan berbagai pihak. Oleh karena itu, komunitas ini aktif menjalin kerjasama dengan pemerintah, swasta, dan komunitas lainnya.</p>
+                
+                <p>"Kami tidak bisa bekerja sendiri. Butuh kolaborasi dari berbagai pihak untuk mengatasi permasalahan sosial yang kompleks. Dengan berkolaborasi, kami bisa saling melengkapi dan menciptakan solusi yang lebih komprehensif," jelas Rahmat.</p>
+                
+                <p>Salah satu bentuk kolaborasi yang dilakukan adalah program "Sinergi untuk Negeri" yang melibatkan berbagai komunitas relawan di Sulawesi Selatan. Program ini fokus pada penanggulangan bencana, edukasi lingkungan, dan pemberdayaan ekonomi masyarakat.</p>
+                
+                <h3>Pemberdayaan Pemuda</h3>
+                <p>Pelopor Kebaikan juga memberikan perhatian khusus pada pemberdayaan pemuda. Melalui program "Pemuda Pelopor", komunitas ini melatih dan mendampingi pemuda untuk menjadi agen perubahan di lingkungan mereka masing-masing.</p>
+                
+                <p>"Pemuda adalah masa depan bangsa. Dengan memberdayakan mereka, kami berharap bisa menciptakan generasi yang peduli dan mau berkontribusi untuk masyarakat," kata Andi Nurul, Koordinator Divisi Pemberdayaan Pemuda.</p>
+                
+                <h3>Rencana Ke Depan</h3>
+                <p>Ke depannya, Pelopor Kebaikan berencana untuk memperluas jangkauan program mereka ke daerah-daerah yang belum terjangkau. Selain itu, komunitas ini juga akan fokus pada program-program yang berkelanjutan dan memberikan dampak jangka panjang.</p>
+                
+                <p>"Kami ingin memastikan bahwa program yang kami jalankan tidak hanya memberikan bantuan sesaat, tetapi juga bisa membantu masyarakat untuk mandiri dan berkelanjutan," tutup Rahmat.</p>
+                
+                <div class="article-source">
+                    <p>Sumber: <a href="https://www.peloporkebaikan.org/2025/03/03/membangun-masyarakat-melalui-aksi-nyata-dan-kolaborasi/" target="_blank">www.peloporkebaikan.org/2025/03/03/membangun-masyarakat-melalui-aksi-nyata-dan-kolaborasi/</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- About Us Section with expanded content and larger heading -->
 <section class="about-section">
     <div class="container">
         <h2 class="section-title">About Us</h2>
@@ -881,11 +1015,19 @@
                     <img src="images/about web.jpg" alt="Volunteers working together">
                 </div>
                 <div class="about-text">
-                    <h3 class="about-title">WHAT IS<br>TENTUFIVEE HUB??</h3>
+                    <h3 class="about-title" style="font-size: 36px; margin-bottom: 24px;">WHAT IS<br>TENTUFIVEE HUB??</h3>
                     <p class="about-description">
                         Platform ini dibuat untuk memudahkan siapa saja yang ingin terlibat dalam kegiatan sosial dan
                         menemukan berbagai peluang volunteer. Dengan akses informasi yang mudah, kamu bisa langsung bergabung
                         dan berkontribusi dalam event yang sesuai dengan minatmu.
+                    </p>
+                    <p class="about-description" style="margin-top: 15px;">
+                        Kami tidak hanya menyediakan informasi tentang kegiatan volunteer, tetapi juga memberikan 
+                        edukasi tentang pentingnya keterlibatan sosial dan bagaimana cara berkontribusi secara efektif.
+                    </p>
+                    <p class="about-description" style="margin-top: 15px;">
+                        Bergabunglah dengan Tentuvifee Hub dan jadilah bagian dari perubahan positif di masyarakat. 
+                        Bersama, kita bisa menciptakan dampak yang lebih besar dan bermakna!
                     </p>
                 </div>
             </div>
@@ -925,7 +1067,7 @@
                         "Kami sering terlibat dalam kegiatan bersih-bersih masjid dan membantu korban bencana seperti
                         banjir dan kebakaran," jelas Dila. Kegiatan ini memperkuat solidaritas dan kepedulian di antara ..."
                     </p>
-                    <a href="/info/2" class="info-button">see more</a>
+                    <a href="#" class="info-button" onclick="openArticlePopup('relawan-milenial'); return false;">see more</a>
                 </div>
             </div>
 
@@ -940,7 +1082,7 @@
                         Wilayah Tamalate yang berada di perbatasan antara Gowa dan Makassar dikenal sebagai daerah
                         padat penduduk. Kehadiran ...
                     </p>
-                    <a href="/info/3" class="info-button">see more</a>
+                    <a href="#" class="info-button" onclick="openArticlePopup('relawan-nusantara'); return false;">see more</a>
                 </div>
             </div>
 
@@ -955,7 +1097,7 @@
                         Salah satu program utama yang dijalankan oleh Pelopor Kebaikan adalah pengabdian masyarakat.
                         Pelopor Kebaikan Sulawesi Selatan secara rutin mengunjungi berbagai ...
                     </p>
-                    <a href="/info/4" class="info-button">see more</a>
+                    <a href="#" class="info-button" onclick="openArticlePopup('pelopor-kebaikan'); return false;">see more</a>
                 </div>
             </div>
         </div>
